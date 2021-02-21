@@ -1,7 +1,7 @@
 # Zodiac signs and friendship match generator
 
 ### Resources:
-GitHub repository: https://github.com/SuraKarolina/QA-Project-2
+GitHub repository: https://github.com/SuraKarolina/QA-Project-2<br />
 Asana board: https://app.asana.com/0/1199910481527550/board
 
 ### Content
@@ -18,19 +18,39 @@ Asana board: https://app.asana.com/0/1199910481527550/board
 ## Brief
 
 ***
-# Software Design
+## Software Design
+
+### Approach of the project
+
+### Minimum Viable Product 
+
+### Project tracking
+
 
 ***
 ## Programming and Software Development
 
+### Coding structure
+
+### Services relationship
+
+### ER table
+
+
+
 ***
 ## System Integration and Build
+
+### Test coverage 
+
+### CI pipline
 
 ***
 ## Release and Deployment
 
 ***
 ## Risk Assessment
+
 
 ***
 ## Future Improvements
