@@ -7,7 +7,7 @@ GitHub repository: https://github.com/SuraKarolina/QA-Project-2
 Asana board: https://app.asana.com/0/1199910481527550/board
 
 # Content
-1.[Brief](#brief) 
+1.[Brief](#brief)<br />
 2.[Software Design](#software-design) 
 3.[Programming and Software Development](#programming-and-software-development) 
 4.[System Integration and Build](#system-integration-and-build) 
