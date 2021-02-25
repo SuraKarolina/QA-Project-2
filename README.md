@@ -34,7 +34,7 @@ Asana board: https://app.asana.com/0/1199910481527550/board
 ### Coding structure
 
 ### Services relationship
-
+![](https://github.com/SuraKarolina/images/blob/main/images/services.png)
 ### ER table
 
 
@@ -43,7 +43,7 @@ Asana board: https://app.asana.com/0/1199910481527550/board
 ## System Integration and Build
 
 ### Test coverage 
-
+![](https://github.com/SuraKarolina/images/blob/main/images/tests.png)
 ### CI pipline
 
 ***
