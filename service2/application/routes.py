@@ -8,7 +8,7 @@ import random
 def first_sign():
     signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
     sign = signs[random.randrange(0,12)]
-    return Response(sign, mimetype = "text/plain")
+    return Response(str(sign), mimetype="text/plain")
 
 
 

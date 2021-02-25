@@ -9,15 +9,16 @@ from application.models import Match
 
 class Testbase(TestCase):
     def create_app(self):
-        app.config.update(SQLALCHEMY_DATABASE_URI=getenv("DATABASE_URI2"),
-            DEBUG=True, WTF_CSRF_ENABLED=False
-        )
+        app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///")
         return app
 
     def setUp(self):
+        db.session.commit()
+        db.drop_all()
         db.create_all()
-        test_character=Character(Character_class="Paladin", Character_race="Gnomish", Character_description="Super evil")
-        db.session.add(test_character)
+
+        test_match = Match(first_sign = 'Aquarius', second_sign = 'Pisces', description = '45%')
+        db.session.add(test_match)
         db.session.commit()
         
     
@@ -25,4 +26,15 @@ class Testbase(TestCase):
         db.session.remove()
         db.drop_all()
 
+
+class TestCreate(Testbase):
+    def test_char(self):
+        with requests_mock.mock() as r:
+            r.get("http://localhost:5001/first_sign", text='Aquarius')
+            r.get("http://localhost:5002/second_sign", text='Pisces')
+            r.get("http://localhost:5003/description", text='45%')
+            response=self.client.get(url_for('home'))
+            self.assertEqual(response.status_code,200)
+            self.assertIn(b'You have generated Aquarius and Pisces', response.data)
+            self.assertIn(b'Their friendship match is 45%', response.data)
 
