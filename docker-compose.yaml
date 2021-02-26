@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  service1:
+    container_name: "container_one"
+    build: ./service1
+    image : karolinasura/service1
+    ports:
+    - targets: 5000
+      published: 80
+      protocol: tcp
+    environment:
+      DATABASE_URI: ${DB_URI}
+      SECRET_KEY: ${SC_KEY}
+    deploy:
+      replicas: 2
+
+  service2: 
+    container_name: "container_two"
+    build: ./service2
+    image : karolinasura/service2
+    deploy:
+      replicas: 2
+
+  service3: 
+    container_name: "container_three"
+    build: ./service3
+    image : karolinasura/service3
+    deploy:
+      replicas: 2
+
+  service4: 
+    container_name: "container_four"
+    build: ./service4
+    image : karolinasura/service4
+    deploy:
+      replicas: 2

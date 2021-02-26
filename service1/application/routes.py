@@ -1,8 +1,7 @@
-from flask import render_template, url_for, Response, request, jsonify, abort
+from flask import render_template, url_for, Response, request, jsonify
 from application import app, db
 from application.models import Match
 import requests
-import random
 import json
 
 
