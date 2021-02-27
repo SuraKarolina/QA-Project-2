@@ -31,14 +31,14 @@
   service:
     name: docker
     state: started
-  - name: 'Install Dockers pip package'
-    pip:
-      name: docker
-      executable: pip3
-  - name: 'Add user to docker group'
-    user: 
-      name: Eng
-      groups: docker
-      append: yes
-  - name: 'Restart connection to ensure user can complete docker commands'
-    meta: reset_connection
+- name: 'Install Dockers pip package'
+  pip:
+    name: docker
+    executable: pip3
+- name: 'Add user to docker group'
+  user: 
+    name: Eng
+    groups: docker
+    append: yes
+- name: 'Restart connection to ensure user can complete docker commands'
+  meta: reset_connection

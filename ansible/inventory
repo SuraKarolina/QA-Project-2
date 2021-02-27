@@ -1,26 +1,18 @@
-[manager]
-manager
-
-[manager:vars]
-ansible_user=jenkins
-ansible_ssh_common_args='-o StrictHostKeyChecking=no'
-ansible_ssh_private_key_file=~/.ssh/id_rsa
-ansible_python_interpreter=/usr/bin/python3
-
-[workers]
-worker
-
-[workers:vars]
-ansible_user=jenkins
-ansible_ssh_common_args='-o StrictHostKeyChecking=no'
-ansible_ssh_private_key_file=~/.ssh/id_rsa
-ansible_python_interpreter=/usr/bin/python3
-
-[nginx]
-nginx
-
-[nginx:vars]
-ansible_user=jenkins
-ansible_ssh_common_args='-o StrictHostKeyChecking=no'
-ansible_ssh_private_key_file=~/.ssh/id_rsa
-ansible_python_interpreter=/usr/bin/python3
+all:
+  children:
+    docker:
+      hosts:
+        34.75.159.9:
+    manager:
+      hosts:      
+        35.243.205.15:
+    worker:
+      hosts:
+        35.237.197.165:
+    nginx:
+      hosts:
+        34.73.25.128:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_user: Eng
+    ansible_ssh_private_key_file: '~/.ssh/id_rsa'
