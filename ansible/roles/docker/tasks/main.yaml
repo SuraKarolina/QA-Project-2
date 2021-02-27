@@ -10,7 +10,7 @@
     - python3-pip
     - python-setuptools  
     state: latest
-    update_cache: true#
+    update_cache: true
 - name: "Get docker key"
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
@@ -37,7 +37,7 @@
     executable: pip3
 - name: 'Add user to docker group'
   user: 
-    name: Eng
+    name: karolina_sura
     groups: docker
     append: yes
 - name: 'Restart connection to ensure user can complete docker commands'
