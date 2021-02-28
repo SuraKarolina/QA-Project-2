@@ -9,7 +9,11 @@ from application.models import Match
 
 class Testbase(TestCase):
     def create_app(self):
-        app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///")
+        app.config.update(SQLALCHEMY_DATABASE_URI=getenv('TEST_DB_URI'),
+        SECRET_KEY=getenv('TEST_SECRET_KEY'),
+        WTF_CSRF_ENABLED=False,
+        DEBUG=True
+        )
         return app
 
     def setUp(self):
