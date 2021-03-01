@@ -5,9 +5,7 @@ services:
     build: ./service1
     image : karolinasura/service1
     ports:
-    - targets: 5000
-      published: 5000
-      protocol: tcp
+    - 5000:5001
     environment:
       DATABASE_URI: ${DB_URI}
       SECRET_KEY: ${SC_KEY}
