@@ -13,8 +13,7 @@ pipeline {
         }
         stage("Build"){
             steps{
-                    sh "docker rmi -f \$(docker images -qa) || true"
-                    sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
+                sh './jenkins_scripts/build.sh'
             }  
         }
         stage('Configure ansible'){
