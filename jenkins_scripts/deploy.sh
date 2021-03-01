@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh manager << EOF
+ssh -i ~/.ssh/rsa_id swarmanager << EOF
 scp /home/karolina_sura/QA-Project-2/docker-compose.yaml /home/jenkins/
 export SECRET_KEY=${SC_KEY} 
 export DATABASE_URI=${DB_URI} 
