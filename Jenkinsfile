@@ -8,7 +8,10 @@ pipeline {
         }
         stage("Build"){
             steps{
-                sh './jenkins_scripts/build.sh'
+                docker-compose build
+                docker.withRegistry('<your docker registry>', 'docker-private-credentials') {
+                    app.push("${app_version}")
+                    app.push("latest")
             }
         }
         stage('Configure ansible'){
