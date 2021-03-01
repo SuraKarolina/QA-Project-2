@@ -6,14 +6,14 @@ pipeline {
         rollback='true'
     } 
     stages{
-        stage('Configure ansible'){
-            steps {
-                sh './jenkins_scripts/configure.sh'
-            }
-        }
         stage('Test'){
             steps{
                 sh './jenkins_scripts/test.sh'
+            }
+        }
+        stage('Configure ansible'){
+            steps {
+                sh './jenkins_scripts/configure.sh'
             }
         }
         stage("Build"){
