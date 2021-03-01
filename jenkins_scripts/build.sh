@@ -1,2 +1,6 @@
 #!/bin/bash
-docker.build("[karolinasura]/service1")
+sudo chmod 666 /var/run/docker.sock
+
+docker-compose build
+sudo docker login
+sudo docker-compose push

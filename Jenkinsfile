@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    environment{
-        DATABASE_URI = credentials("DATABASE_URI")
-        AUTHOR = credentials("AUTHOR")
-        app_version=1
-        rollback='false'
     }
     stages{
         stage('Test'){
