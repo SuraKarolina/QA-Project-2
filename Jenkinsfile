@@ -13,10 +13,8 @@ pipeline {
         }
         stage("Build"){
             steps{
-                if (env.rollback == 'false') {
                     sh "docker rmi -f \$(docker images -qa) || true"
                     sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
-                }
             }  
         }
         stage('Configure ansible'){
