@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
-        app_version=1
+        app_version= '1'
         rollback='true'
     } 
     stages{
