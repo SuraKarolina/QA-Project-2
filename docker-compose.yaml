@@ -7,8 +7,8 @@ services:
     ports:
     - 5000:5001
     environment:
-      DATABASE_URI: ${DB_URI}
-      SECRET_KEY: ${SC_KEY}
+      DATABASE_URI: "mysql+pymysql://root:root@34.73.160.204/db"
+      SECRET_KEY: "kzdjvakjsdvcbajhdbvadjhfbv"
     deploy:
       replicas: 2
 
