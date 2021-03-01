@@ -13,17 +13,13 @@ pipeline {
         }
         stage('Test'){
             steps{
-                if (env.rollback == 'false'){
-                    sh './jenkins_scripts/test.sh'
-                }
+                sh './jenkins_scripts/test.sh'
             }
         }
         stage("Build"){
             steps{
                 script {
-                    if (env.rollback == 'false'){
-                        sh './jenkins_scripts/build.sh'
-                    }
+                    sh './jenkins_scripts/build.sh'
                 }  
             }
         }
