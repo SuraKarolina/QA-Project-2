@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build'){
             steps{
-                sh 'image =docker.build("[karolinasura]/service1")'
+                sh './jenkins_scripts/build.sh'
             }
         }
         stage('Configure ansible'){
