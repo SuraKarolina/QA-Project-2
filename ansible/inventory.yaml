@@ -1,18 +1,23 @@
-all:
-  children:
-    docker:
-      hosts:
-        35.237.206.45:
-    manager:
-      hosts:      
-        34.75.89.102:
-    worker:
-      hosts:
-        104.196.20.27:
-    nginx:
-      hosts:
-        34.73.93.246:
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-    ansible_user: karolina_sura
-    ansible_ssh_private_key_file: '/home/karolina_sura/.ssh/id_rsa'
+[manager]
+manager-swarm
+
+[manager:vars]
+ansible_user=jenkins
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[worker]
+worker-swarm
+
+[worker:vars]
+ansible_user=jenkins
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[nginx]
+nginx-project
+
+[nginx:vars]
+ansible_user=jenkins
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/id_rsa
