@@ -11,16 +11,17 @@ pipeline {
                 sh './jenkins_scripts/test.sh'
             }
         }
-        stage('Configure ansible'){
-            steps {
-                sh './jenkins_scripts/configure.sh'
-            }
-        }
         stage("Build"){
             steps{
                 script {
-                    sh './jenkins_scripts/build.sh'
+                    sh "docker rmi -f \$(docker images -qa) || true"
+                    sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
                 }  
+            }
+        }
+        stage('Configure ansible'){
+            steps {
+                sh './jenkins_scripts/configure.sh'
             }
         }
         stage('Deploy'){
