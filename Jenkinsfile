@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Build"){
             steps{
-                sh './scripts/build.sh'
+                sh './jenkins_scripts/build.sh'
             }
         }
         stage('Configure ansible'){
