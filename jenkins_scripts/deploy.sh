@@ -1,7 +1,7 @@
-#!/bin/bash
-ssh -i /home/jenkins/.ssh/rsa_id manager-swarm << EOF
-scp /home/karolina_sura/QA-Project-2/docker-compose.yaml /home/jenkins/
-export SECRET_KEY=${SC_KEY} 
-export DATABASE_URI=${DB_URI} 
-docker stack deploy --compose-file docker-compose.yaml
+scp -i ~/.ssh/id_rsa docker-compose.yaml jenkins@manager-swarm:/home/jenkins/docker-compose.yaml
+ssh -i ~/.ssh/id_rsa jenkins@manager-swarm << EOF
+    export DATABASE_URI=${DATABASE_URI}
+    export AUTHOR=${AUTHOR}
+    export DB_PASSWORD=${DB_PASSWORD}
+    docker stack deploy --compose-file /home/jenkins/docker-compose.yml financial-report-generator-stack
 EOF
