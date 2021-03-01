@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment{
+        DATABASE_URI = credentials("DATABASE_URI")
+        app_version=1
+        rollback='true'
+    }
     stages{
         stage('Test'){
             steps{
@@ -8,11 +13,11 @@ pipeline {
         }
         stage("Build"){
             steps{
-                sh "docker-compose build"
-                sh "docker.withRegistry('<your docker registry>', 'docker-private-credentials') {
-                    app.push("${app_version}")
-                    app.push("latest")"
-            }
+                if (env.rollback == 'false') {
+                    sh "docker rmi -f \$(docker images -qa) || true"
+                    sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
+                }
+            }  
         }
         stage('Configure ansible'){
             steps {
