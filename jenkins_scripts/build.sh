@@ -8,4 +8,5 @@ sudo usermod -aG docker $(whoami)
 sudo usermod -aG docker jenkins
 newgrp docker
 docker-compose build --parallel
-docker-compose push
+sudo docker login
+sudo docker-compose push
