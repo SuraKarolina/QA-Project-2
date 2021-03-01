@@ -14,11 +14,9 @@ pipeline {
         }
         stage("Build"){
             steps{
-                if (env.rollback == 'false'){
                     sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
                     sh "docker system prune -af"
-                    sh "bash jenkins/build_images.sh"
-                }   
+                    sh "bash jenkins/build_images.sh" 
             }
         }
         stage('Configure ansible'){
