@@ -16,7 +16,7 @@ Asana board: https://app.asana.com/0/1199910481527550/board
 ***
 
 ## Brief
-
+The requirement of this project was to create simple web application composed of four services that work together. First server work as a core service, it communicate with other services and store data in database. Second and third services are responsible for generation of random 'object'. Service 4 also generates random 'object' but this should be based on service 2 and 3 results. 
 
 ***
 ## Software Design
