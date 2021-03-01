@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    environment{
-        DATABASE_URI = credentials("DATABASE_URI")
-        app_version= '1'
-        rollback='true'
-    } 
     stages{
         stage('Test'){
             steps{
@@ -13,11 +8,7 @@ pipeline {
         }
         stage("Build"){
             steps{
-                script {
-                    sh "docker-compose build --parallel --build-arg APP_VERSION=${app_version} && docker-compose push"
-                    sh "docker system prune -af"
-                    sh "bash jenkins/build_images.sh"
-                }  
+                sh './scripts/build.sh'
             }
         }
         stage('Configure ansible'){
