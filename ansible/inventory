@@ -2,16 +2,16 @@ all:
   children:
     docker:
       hosts:
-        34.75.159.9:
+        35.237.206.45:
     manager:
       hosts:      
-        35.243.205.15:
+        34.75.89.102:
     worker:
       hosts:
-        35.237.197.165:
+        104.196.20.27:
     nginx:
       hosts:
-        34.73.25.128:
+        34.73.93.246:
   vars:
     ansible_python_interpreter: /usr/bin/python3
     ansible_user: karolina_sura
