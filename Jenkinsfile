@@ -14,7 +14,9 @@ pipeline {
         }
         stage('Build'){
             steps{
-                image = docker.build("[karolinasura]/service1")
+                if (env.rollback == 'false'){
+                    image = docker.build("[karolinasura]/service1")
+                }
             }
         }
         stage('Configure ansible'){
