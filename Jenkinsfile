@@ -8,8 +8,12 @@ pipeline {
         }
         stage('Build'){
             steps{
-                script{
-                    image = docker.build("[karolinasura]/service1")
+                node {
+                    checkout scm
+                    def customImage = docker.build("[karolinasura]/service1")
+                    customImage.push()
+
+                    customImage.push('latest')
                 }
             }
         }
