@@ -1,8 +1,9 @@
 pipeline {
     agent any
     environment {
-        app_version = 'v1'
-        rollback = 'false'
+        registry = "karolinasura/new"
+        registryCredentials = 'AUTHOR'
+        dockerImage = ''
     }
     stages{
         stage('Test'){
@@ -10,13 +11,30 @@ pipeline {
                 sh './jenkins_scripts/test.sh'
             }
         }
+        stage('Clone repo'){
+            steps{
+                git "https://github.com/SuraKarolina/QA-Project-2.git"
+            }
+        }
         stage('Build'){
             steps{
                 script{
-                    if (env.rollback == 'false'){
-                        image = docker.build("[karolinasura]/service1")
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage('Push'){
+            steps{
+                script{
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
                     }
                 }
+            }
+        }
+        stage('Clean up'){
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
         stage('Configure ansible'){
