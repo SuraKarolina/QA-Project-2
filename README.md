@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # QA-Project-2
-=======
+
 # Zodiac signs and friendship match generator
 
 ### Resources:
