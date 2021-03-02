@@ -70,7 +70,7 @@ Unit test results for each service:
 
 
 ### CI pipline
-![]()
+![](https://github.com/SuraKarolina/images/blob/main/images/CI.png)
 
 
 
