@@ -3,7 +3,7 @@ services:
   service1:
     container_name: "container_one"
     build: ./service1
-    image : [karolinasura]/service1
+    image : karolinasura/service1
     ports:
     - 5000:5001
     environment:
@@ -15,20 +15,20 @@ services:
   service2: 
     container_name: "container_two"
     build: ./service2
-    image : [karolinasura]/service2
+    image : karolinasura/service2
     deploy:
       replicas: 2
 
   service3: 
     container_name: "container_three"
     build: ./service3
-    image : [karolinasura]/service3
+    image : karolinasura/service3
     deploy:
       replicas: 2
 
   service4: 
     container_name: "container_four"
     build: ./service4
-    image : [karolinasura]/service4
+    image : karolinasura/service4
     deploy:
       replicas: 2
