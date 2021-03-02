@@ -16,22 +16,35 @@ Asana board: https://app.asana.com/0/1199910481527550/board
 ***
 
 ## Brief
-The requirement of this project was to create simple web application composed of four services that work together. First server work as a core service, it communicate with other services and store data in database. Second and third services are responsible for generation of random 'object'. Service 4 also generates random 'object' but this should be based on service 2 and 3 results. 
+The requirement of this project was to create simple web application composed of four services that work together. First server work as a core service, it communicate with other services and store data in database. Second and third services are responsible for generation of random 'object'. Service 4 also generates random 'object' but this should be based on service 2 and 3 results. There are following additional requirements:
+* An Asana board (or equivalent Kanban board tech) with full expansion on tasks needed to complete the project.
+* An Application fully integrated using the Feature-Branch model into a Version Control System which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.
+* If a change is made to a code base, then Webhooks should be used so that Jenkins recreates and redeploys the changed application
+* The project must follow the Service-oriented architecture that has been asked for.
+* The project must be deployed using containerisation and an orchestration tool.
+* As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
+* The project must make use of a reverse proxy to make your application accessible to the user.
 
 ***
 ## Software Design
 
 ### Approach of the project
 
+My approach to the project was to create two versions of the application. The first version would be configured, tested, builed and deployed with Jenkins pipline. The system version control would be connected with Jenkins via webhook in order to update repository and replace first version of the application with the second version.  
+
 ### Minimum Viable Product 
 
+The Minimum Viable Prodact is presented in MosCow prioritization diagram: 
+![]()
+
 ### Project tracking
+
+For project tracking and management Asana board was used. 
 
 
 ***
 ## Programming and Software Development
 
-### Coding structure
 
 ### Services relationship
 ![](https://github.com/SuraKarolina/images/blob/main/images/services.png)
