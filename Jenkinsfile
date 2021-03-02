@@ -13,9 +13,7 @@ pipeline {
         }
         stage('Build'){
             steps{
-                script{
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
+                sh './jenkins_scripts/build.sh'
             }
         }
         stage('Push'){
