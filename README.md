@@ -37,19 +37,21 @@ My approach to the project was to create two versions of the application. The fi
 ### Minimum Viable Product 
 
 The Minimum Viable Prodact is presented in MosCow prioritization diagram: 
-![]()
+![](https://github.com/SuraKarolina/images/blob/main/images/moscow.png)
 
 ### Project tracking
 
 For project tracking and management Asana board was used. 
 ![](https://github.com/SuraKarolina/images/blob/main/images/asana2.png)
 
-***
-## Programming and Software Development
-
 
 ### Services relationship
+
+Services work together using GET and POST methods. The diagram shows relationship between each service: 
+
 ![](https://github.com/SuraKarolina/images/blob/main/images/services.png)
+
+
 ### ER table
 
 
