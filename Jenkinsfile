@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        app_version = 'v1'
+        rollback = 'false'
+    }
     stages{
         stage('Test'){
             steps{
@@ -8,12 +12,10 @@ pipeline {
         }
         stage('Build'){
             steps{
-                node {
-                    checkout scm
-                    def customImage = docker.build("[karolinasura]/service1")
-                    customImage.push()
-
-                    customImage.push('latest')
+                script{
+                    if (env.rollback == 'false'){
+                        image = docker.build("[karolinasura]/service1")
+                    }
                 }
             }
         }
