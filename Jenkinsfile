@@ -11,11 +11,6 @@ pipeline {
                 sh './jenkins_scripts/test.sh'
             }
         }
-        stage('Clone repo'){
-            steps{
-                git "https://github.com/SuraKarolina/QA-Project-2.git"
-            }
-        }
         stage('Build'){
             steps{
                 script{
