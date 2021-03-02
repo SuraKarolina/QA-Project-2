@@ -3,9 +3,10 @@ services:
   service1:
     container_name: "container_one"
     build: ./service1
-    image : karolinasura/service1
+    image : karolinasura/service1:${appversion}
     ports:
-    - 5000:5001
+      -target: 5000
+      published: 5000
     environment:
       DATABASE_URI: "mysql+pymysql://root:root@34.73.160.204/db"
       SECRET_KEY: "kzdjvakjsdvcbajhdbvadjhfbv"
@@ -15,20 +16,26 @@ services:
   service2: 
     container_name: "container_two"
     build: ./service2
-    image : karolinasura/service2
+    image : karolinasura/service2:${appversion}
     deploy:
       replicas: 2
+    depends_on:
+      -service1  
 
   service3: 
     container_name: "container_three"
     build: ./service3
-    image : karolinasura/service3
+    image : karolinasura/service3:${appversion}
     deploy:
       replicas: 2
+    depends_on:
+      -service1  
 
   service4: 
     container_name: "container_four"
     build: ./service4
-    image : karolinasura/service4
+    image : karolinasura/service4:${appversion}
     deploy:
       replicas: 2
+    depends_on:
+      -service1  
