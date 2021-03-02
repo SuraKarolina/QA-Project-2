@@ -19,5 +19,5 @@ cd ..
 
 cd service4
 python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
-deactivate 
 cd ..
+deactivate 
