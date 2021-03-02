@@ -1,0 +1,15 @@
+- name: 'Add jenkins user'
+  user:
+    name: jenkins
+    groups: docker
+    shell: /bin/bash
+    append: true
+
+
+- name: 'Init a new swarm with default parameters'
+  docker_swarm:
+    state: present
+
+- name: Get the manager node join-token
+  docker_swarm_info:
+  register: swarm_info

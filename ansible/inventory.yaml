@@ -1,0 +1,26 @@
+[manager]
+manager-swarm
+
+[manager:vars]
+ansible_user=jenkins
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3
+
+[worker]
+worker-swarm
+
+[worker:vars]
+ansible_user=jenkins
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3
+
+[nginx]
+nginx-project
+
+[nginx:vars]
+ansible_user=karolina_sura
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3
