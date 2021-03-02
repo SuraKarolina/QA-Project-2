@@ -54,17 +54,25 @@ Services work together using GET and POST methods. The diagram shows relationshi
 
 ### ER table
 
+Database structure for this project consist of one table:
+
+![](https://github.com/SuraKarolina/images/blob/main/images/ER%20table.png)
 
 
 ***
 ## System Integration and Build
 
 ### Test coverage 
-![](https://github.com/SuraKarolina/images/blob/main/images/tests.png)
-### CI pipline
 
-***
-## Release and Deployment
+Unit test results for each service:
+
+![](https://github.com/SuraKarolina/images/blob/main/images/tests.png)
+
+
+### CI pipline
+![]()
+
+
 
 ***
 ## Risk Assessment
@@ -74,6 +82,4 @@ Services work together using GET and POST methods. The diagram shows relationshi
 ## Future Improvements
 
 ***
-## Contributors and Acknowledgement
 
->>>>>>> a951990426dd835ac474b6c0cce3d3ea12e962c4
