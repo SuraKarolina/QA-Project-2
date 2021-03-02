@@ -40,7 +40,7 @@ The Minimum Viable Prodact is presented in MosCow prioritization diagram:
 ### Project tracking
 
 For project tracking and management Asana board was used. 
-
+![](https://github.com/SuraKarolina/images/blob/main/images/asana2.png)
 
 ***
 ## Programming and Software Development
