@@ -14,6 +14,7 @@ pipeline {
         stage('Build'){
             steps{
                 script{
+                    git "https://github.com/SuraKarolina/QA-Project-2.git"
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
